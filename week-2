@@ -12,6 +12,15 @@ Uploading files to FTP.
 Setting up your own FTP server.</h3>
 <br>
 <h4>Connecting the FTP server and navigating in file structures </h4>
+<ul style="list-style-type:disc;">
 <li>First we will create our own environment to establish connection to FTP server and activate that source environment.After that we will import the neccesary librariesand establish a connection by login and we will explore the available directories with two method and compare their results.The code for this process and result of code is given below:</li>
 <li>code<li>
 <li>Conclusion : the result for both medthod is same<li>
+</ul>
+<hr>
+<h5>Downloading files from FTP</h5>
+<ul style="list-style-type:disc:">
+<li>Now to download any file for example README>html from FTP server we will change the directory to debian and create a path for it to download.After running the code you will get a file with html tags and in terminal get notification for successful file transfer.The code for this process with an example is given below:<li>
+<li>code<li>
+</ul>
+<hr>
