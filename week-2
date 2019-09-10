@@ -14,14 +14,70 @@ Setting up your own FTP server.</h3>
 <h4>Connecting the FTP server and navigating in file structures </h4>
 <ul style="list-style-type:disc;">
 <li>First we will create our own environment to establish connection to FTP server and activate that source environment.After that we will import the neccesary librariesand establish a connection by login and we will explore the available directories with two method and compare their results.The code for this process and result of code is given below:</li>
-<li>code<li>
+<li>(base) C:\Users\User>conda create -n 191AEM006_FTP.env
+Collecting package metadata (current_repodata.json): done
+Solving environment: done
+
+
+==> WARNING: A newer version of conda exists. <==
+  current version: 4.7.10
+  latest version: 4.7.11
+(191AEM006_FTP.env) C:\Users\User>conda list
+# packages in environment at F:\Miniconda\envs\191AEM006_FTP.env:
+#
+# Name                    Version                   Build  Channel
+>>> from ftplib import FTP
+>>> ftp = FTP('ftp.lt.debian.org')
+>>> ftp.login();
+'230 Login successful.'
+>>> data = ftp.retrlines('LIST')
+drwxr-xr-x  198 ftp      ftp          8192 Sep 09 12:30 apache
+drwxr-xr-x    9 ftp      ftp          4096 Sep 10 09:15 debian
+drwxr-xr-x    5 ftp      ftp           102 Sep 10 09:12 debian-backports
+drwxr-xr-x    5 ftp      ftp           127 Sep 08 16:43 debian-cd
+drwxr-xr-x    7 ftp      ftp           142 Sep 10 09:12 debian-security
+-rw-r--r--    1 ftp      ftp           571 Sep 10 10:44 debian-sources.list
+-rw-r--r--    1 ftp      ftp           566 Apr 16  2014 ftp-sources.list
+drwxr-xr-x    4 ftp      ftp           127 Sep 10 09:13 raspbian
+drwxr-xr-x   12 ftp      ftp          4096 Sep 10 10:13 releases
+drwxr-xr-x    7 ftp      ftp          4096 Sep 10 09:30 ubuntu
+-rw-r--r--    1 ftp      ftp           862 Sep 10 10:44 ubuntu-sources.list
+>>> print(data)
+226 Directory send OK.
+>>> ftp.retrlines('LIST')
+drwxr-xr-x  198 ftp      ftp          8192 Sep 09 12:30 apache
+drwxr-xr-x    9 ftp      ftp          4096 Sep 10 09:15 debian
+drwxr-xr-x    5 ftp      ftp           102 Sep 10 09:12 debian-backports
+drwxr-xr-x    5 ftp      ftp           127 Sep 08 16:43 debian-cd
+drwxr-xr-x    7 ftp      ftp           142 Sep 10 09:12 debian-security
+-rw-r--r--    1 ftp      ftp           571 Sep 10 10:44 debian-sources.list
+-rw-r--r--    1 ftp      ftp           566 Apr 16  2014 ftp-sources.list
+drwxr-xr-x    4 ftp      ftp           127 Sep 10 09:13 raspbian
+drwxr-xr-x   12 ftp      ftp          4096 Sep 10 10:13 releases
+drwxr-xr-x    7 ftp      ftp          4096 Sep 10 09:30 ubuntu
+-rw-r--r--    1 ftp      ftp           862 Sep 10 10:44 ubuntu-sources.list
+'226 Directory send OK.'
+>>> print(data)
+226 Directory send OK.<li>
 <li>Conclusion : the result for both medthod is same<li>
 </ul>
 <hr>
 <h5>Downloading files from FTP</h5>
 <ul style="list-style-type:disc:">
 <li>Now to download any file for example README>html from FTP server we will change the directory to debian and create a path for it to download.After running the code you will get a file with html tags and in terminal get notification for successful file transfer.The code for this process with an example is given below:<li>
-<li>code<li>
+<li>>>> ftp.cwd('debian')
+'250 Directory successfully changed.'
+>>> with open('out', 'wb') as f:
+...     ftp.retrbinary('RETR ' + 'README.html', f.write)
+...
+'226 Transfer complete.
+>>> out = './README.html'
+>>> with open('out', 'wb') as f:
+...     ftp.retrbinary('RETR ' + 'README.html', f.write)
+...
+'226 Transfer complete.'
+>>>
+<li>
 </ul>
 <hr>
 <p>Finally, Link REPO 411-w16 to Student's Course REPO.</p>
