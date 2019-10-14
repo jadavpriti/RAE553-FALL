@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Page Title</title>
+</head>
+<body>
+
+<h1>Week 6</h1>
+<h2>RAE553-FALL 2019</h2>
+<h3>Agenda : API development</h3>
+<br>
+<h4> </h4>
+<ul style="list-style-type:disc;">
+<li>we have to launch Postman platform for API development and test our API in action:</li>
+<li>using name Ralf<li>
+<li>from flask import Flask
+from flask_restful import Resource,Api
+
+app = Flask(_name_)
+api = Api(app)
+
+class Student(Resource) :
+ 	def grt(self , name) :
+		return { ‘ student ‘ : name}
+
+api.add_resource(Student, ‘/student/<string:name>’)  #http://127.0.0.1:5000/student/rolf
+
+app.run(port=5000)
+<li>
+</ul>
+<hr>
+<h5>using own name</h5>
+<ul style="list-style-type:disc:">
+<li>from flask import Flask
+from flask_restful import Resource,Api
+
+app = Flask(_name_)
+api = Api(app)
+
+class Student(Resource) :
+ 	def grt(self , name) :
+		return { ‘ student ‘ : name}
+
+api.add_resource(Student, ‘/student/<string:name>’)  #http://127.0.0.1:5000/student/priti
+
+app.run(port=5000)<li>
+</body>
+</html>
+Lab.txt
+Displaying Lab.txt.
+© 2019 GitH
