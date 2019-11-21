@@ -20,7 +20,7 @@ app = Flask(_name_)
 api = Api(app)
 
 class Student(Resource) :
- 	def grt(self , name) :
+ 	def get(self , name) :
 		return { ‘ student ‘ : name}
 
 api.add_resource(Student, ‘/student/<string:name>’)  #http://127.0.0.1:5000/student/rolf
