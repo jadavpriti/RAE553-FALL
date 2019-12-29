@@ -22,7 +22,9 @@ cursor.execute(create_table)
 users = [
 (1, 'priti', '12345'),
 (2, 'bob', '12346'),
-(3, 'eva', '12348')
+(3, 'eva', '12348'),
+(4, 'alina', '12349'),
+(5, 'david', '12340')
 ]
 
 insert_query = ("INSERT INTO users VALUES (?, ?, ?)")
