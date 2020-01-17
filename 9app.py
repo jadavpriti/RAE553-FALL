@@ -59,23 +59,16 @@ class item(Resource):
 
     @jwt_required()
     def put(self, name):
-        args = parser.parse_args()
-        task = {'price': args['price']} # task = { price : 5555 }
-        items[name] = task          #items[pen] = { "price" : "5555" }
-        return task # prints { "price" : "5555"}
+        return items
 
     @jwt_required()
     def post(self, name):
-        if name not in items:
-            args = parser.parse_args()
-            task = {'price': args['price']}
-            items[name] = task
-            return task
+            return items
         else:
             abort(404)
 
 # ItemList
-class itemList(Resource):
+class items(Resource):
     def get(self):
         return items
 
